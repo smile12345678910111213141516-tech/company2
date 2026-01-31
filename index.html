@@ -65,6 +65,7 @@ nav {
 .nav-logo {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
 }
 
 .nav-logo img {
@@ -214,12 +215,20 @@ footer {
   header p { font-size: 0.9rem; }
   section h2 { font-size: 1.5rem; }
 }
+
+/* 🔒 MOBILE NAVBAR OPTIMIZATION */
 @media (max-width: 700px) {
   nav {
+    flex-wrap: nowrap;
     padding: 0 12px;
   }
 
+  .nav-logo {
+    margin-right: 10px;
+  }
+
   .nav-links {
+    flex: 1 1 auto;
     overflow-x: auto;
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
@@ -236,7 +245,6 @@ footer {
     border-radius: 4px;
   }
 }
-
 </style>
 </head>
 
@@ -245,7 +253,7 @@ footer {
 <!-- Navbar -->
 <nav>
   <a href="index.html" class="nav-logo">
-    <img src="./images/the.png"  alt="Repowering Partners logo" style="width: 75px; height: auto;">
+    <img src="./images/the.png" alt="Repowering Partners logo" style="width: 75px; height: auto;">
   </a>
 
   <div class="nav-links">
