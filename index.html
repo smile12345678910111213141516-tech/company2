@@ -356,8 +356,12 @@ footer {
 
   <form action="https://formspree.io/f/xoqgkzlr" method="POST">
     <input type="hidden" name="_subject" value="New Solar Asset Inquiry">
-    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="hidden" name="_cc" value="Jim.bakhaus@repoweringpartners.com">
+
+    <input type="text" name="name" placeholder="Jimmy" required>
     <input type="email" name="email" placeholder="Your Email" required>
+    <input type="hidden" name="_replyto" value="%email%">
+
     <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
     <button type="submit">Contact Repowering Partners</button>
   </form>
