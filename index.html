@@ -3,13 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
 <title>Repowering Partners | Acquiring & Revitalizing Solar Assets</title>
 <meta name="description" content="Repowering Partners acquires aging, underperforming, or distressed solar assets across the United States and restores them to peak performance." />
+<meta name="theme-color" content="#111528" />
+<meta name="color-scheme" content="light" />
 
 <!-- SEO -->
 <meta name="robots" content="index, follow">
 <meta name="author" content="Repowering Partners">
+<link rel="canonical" href="https://repoweringpartners.com/" />
+
+<!-- Social -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Repowering Partners | Acquiring & Revitalizing Solar Assets" />
+<meta property="og:description" content="We acquire and optimize aging, underperforming, and distressed solar facilities across the United States." />
+<meta property="og:url" content="https://repoweringpartners.com/" />
+<meta property="og:image" content="https://repoweringpartners.com/images/Main-Purpose-Of-Solar-Panels-scaled-2560x1280.jpeg.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Repowering Partners | Acquiring & Revitalizing Solar Assets" />
+<meta name="twitter:description" content="We acquire and optimize aging, underperforming, and distressed solar facilities across the United States." />
+<meta name="twitter:image" content="https://repoweringpartners.com/images/Main-Purpose-Of-Solar-Panels-scaled-2560x1280.jpeg.webp" />
 
 <!-- Favicon -->
 <link rel="icon" type="image/png" href="./images/the.png">
@@ -86,6 +101,27 @@ nav a {
   white-space: nowrap;
 }
 nav a:hover { text-decoration: underline; }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.skip-link:focus {
+  left: 16px;
+  top: 8px;
+  width: auto;
+  height: auto;
+  background: #fff;
+  color: var(--nav-bg);
+  padding: 8px 10px;
+  border-radius: 6px;
+  z-index: 2000;
+}
 
 /* Header */
 header {
@@ -194,6 +230,14 @@ ol { padding-left: 20px; }
 }
 .cta button:hover { background: var(--primary-dark); }
 
+.cta button:focus-visible,
+.cta input:focus-visible,
+.cta textarea:focus-visible,
+nav a:focus-visible {
+  outline: 3px solid rgba(45, 63, 143, 0.35);
+  outline-offset: 2px;
+}
+
 /* Footer */
 footer {
   background: #0e1020;
@@ -245,10 +289,34 @@ footer {
     border-radius: 4px;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Repowering Partners",
+  "url": "https://repoweringpartners.com/",
+  "logo": "https://repoweringpartners.com/images/the.png",
+  "description": "Repowering Partners acquires aging, underperforming, or distressed solar assets across the United States.",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "sales",
+    "email": "Jim.bakhaus@repoweringpartners.com"
+  }
+}
+</script>
 </head>
 
 <body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
 <!-- Navbar -->
 <nav>
@@ -274,7 +342,7 @@ footer {
   </div>
 </header>
 
-<main>
+<main id="main-content">
   <!-- About -->
   <section id="about">
     <h2>About Repowering Partners</h2>
@@ -284,7 +352,7 @@ footer {
         <p>As the first generation of U.S. utility-scale solar projects matures, many assets face declining production, outdated equipment, and increasing operational complexity. Our mission is to unlock hidden value in these legacy systems.</p>
         <p>We provide detailed asset evaluation, helping owners understand the current performance, identify areas for improvement, and maximize long-term financial returns. This includes analyzing energy output, component health, maintenance history, and regional incentive programs.</p>
       </div>
-      <img src="./images/Workers-clean-photovoltaic-panels-inside-a-solar-power-plant-in-Gujarat-India.jpg" alt="Utility-scale solar energy installation">
+      <img src="./images/Workers-clean-photovoltaic-panels-inside-a-solar-power-plant-in-Gujarat-India.jpg" alt="Utility-scale solar energy installation" loading="lazy" decoding="async">
     </div>
   </section>
 
@@ -332,7 +400,7 @@ footer {
         </ul>
         <p>Our operational insights include detailed site evaluations, production forecasting, and cost optimization to ensure each asset achieves its full potential.</p>
       </div>
-      <img src="./images/installing-solar-panels.webp" alt="Solar technician performing system maintenance">
+      <img src="./images/installing-solar-panels.webp" alt="Solar technician performing system maintenance" loading="lazy" decoding="async">
     </div>
   </section>
 
@@ -354,15 +422,15 @@ footer {
   <h2>Discuss a Solar Asset</h2>
   <p>If you own or represent an aging or underperforming solar facility, we welcome a confidential conversation.</p>
 
-  <form action="https://formspree.io/f/xoqgkzlr" method="POST">
+  <form action="https://formspree.io/f/xoqgkzlr" method="POST" autocomplete="on">
     <input type="hidden" name="_subject" value="New Solar Asset Inquiry">
     <input type="hidden" name="_cc" value="Jim.bakhaus@repoweringpartners.com">
 
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
+    <input type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+    <input type="email" name="email" placeholder="Your Email" autocomplete="email" inputmode="email" required>
     <input type="hidden" name="_replyto" value="%email%">
 
-    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+    <textarea name="message" placeholder="Your Message" rows="5" autocomplete="off" required></textarea>
     <button type="submit">Contact Repowering Partners</button>
   </form>
 </section>
