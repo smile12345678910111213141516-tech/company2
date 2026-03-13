@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repowering Partners | Solar Asset Acquisitions</title>
+<meta name="description" content="We acquire utility and commercial scale solar farms. Get a no-obligation, all-cash valuation for your solar asset within 24 hours.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://repoweringpartners.com/">
+<meta property="og:title" content="Repowering Partners | Solar Acquisitions">
+<meta property="og:description" content="Get a competitive, all-cash valuation for your solar farm within 24 hours.">
+<meta property="og:image" content="https://repoweringpartners.com/images/og-image.jpg">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://repoweringpartners.com/">
+<meta property="twitter:title" content="Repowering Partners | Solar Acquisitions">
+<meta property="twitter:description" content="Get a competitive, all-cash valuation for your solar farm within 24 hours.">
+<meta property="twitter:image" content="https://repoweringpartners.com/images/og-image.jpg">
+
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230a0a0a'/%3E%3Cpolygon points='18,4 10,18 16,18 14,28 22,14 16,14' fill='%23f0f0f0'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav id="navbar">
+  <div class="nav-left">
+    <div class="nav-logo" onclick="route(event, 'home')">Repowering Partners</div>
+  </div>
+
+  <div class="nav-center">
+    <a href="#home" onclick="route(event, 'home')" id="nav-home" class="active">Home</a>
+    <a href="#about" onclick="route(event, 'about')" id="nav-about">About</a>
+    <a href="#contact" onclick="route(event, 'contact')" id="nav-contact">Contact</a>
+  </div>
+
+  <div class="nav-right">
+    <button class="nav-btn-solid" onclick="route(event, 'contact')">Sell Asset</button>
+    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#home" onclick="route(event, 'home')">Home</a>
+  <a href="#about" onclick="route(event, 'about')">About</a>
+  <a href="#contact" onclick="route(event, 'contact')">Contact</a>
+</div>
+
+
+<!-- ══════════════════════════════
+     HOME PAGE
+══════════════════════════════ -->
+<div class="page active" id="page-home">
+
+  <section class="hero">
+    <div class="hero-meta">
+      <span>Repowering Partners</span>
+      <div class="hero-meta-dot"></div>
+      <span>Est. 2019</span>
+      <div class="hero-meta-dot"></div>
+      <span class="hero-meta-tag">Active Capital</span>
+    </div>
+    <h1 class="hero-headline">
+      ASSET<br>
+      <span class="line-muted">LIQUIDITY</span>
+    </h1>
+    <div class="hero-bottom">
+      <div class="hero-tags">
+        <div class="hero-tag-item">
+          <div class="tag-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/>
+              <polyline points="17 6 23 6 23 12"/>
+            </svg>
+          </div>
+          Fast Closing
+        </div>
+        <div class="hero-tag-item">
+          <div class="tag-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
+          Market Valuation
+        </div>
+        <div class="hero-tag-item">
+          <div class="tag-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 11 12 14 22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </div>
+          Simple Process
+        </div>
+        <div class="hero-tag-item dim">Acquisitions Nationwide</div>
+      </div>
+      <div class="hero-cta-row">
+        <button class="btn-solid" onclick="route(event, 'contact')">Get a Valuation Offer</button>
+        <button class="btn-outline" onclick="route(event, 'about')">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST SIGNALS (New Section) -->
+  <div class="trust-strip">
+    <div class="trust-label">Trusted Partners & Integrations</div>
+    <div class="trust-logos">
+      <!-- Replace these spans with actual SVGs or Images of partners/banks -->
+      <span>J.P. Morgan</span>
+      <span>NextEra Energy</span>
+      <span>Wells Fargo</span>
+      <span>Duke Energy</span>
+    </div>
+  </div>
+
+  <div class="hero-image-strip">
+    <div class="strip-img">
+      <img src="images/theys.jpeg" alt="Utility Scale Solar Farm">
+      <div class="img-placeholder">
+        <span>Image 1 — Utility Scale</span>
+      </div>
+      <div class="strip-overlay"></div>
+      <div class="strip-label">Utility Scale</div>
+    </div>
+
+    <div class="strip-img">
+      <img src="images/they1.jpg" alt="Commercial Solar Farm">
+      <div class="img-placeholder">
+        <span>Image 2 — Commercial</span>
+      </div>
+      <div class="strip-overlay"></div>
+      <div class="strip-label">Commercial</div>
+    </div>
+
+    <div class="strip-img">
+      <img src="images/them.jpeg" alt="Ground Mount Solar">
+      <div class="img-placeholder">
+        <span>Image 3 — Ground Mount</span>
+      </div>
+      <div class="strip-overlay"></div>
+      <div class="strip-label">Ground Mount</div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat-cell" data-animate>
+      <div class="stat-num">$2B+</div>
+      <div class="stat-lbl">Assets Acquired</div>
+    </div>
+    <div class="stat-cell" data-animate>
+      <div class="stat-num">120+</div>
+      <div class="stat-lbl">Farms Purchased</div>
+    </div>
+    <div class="stat-cell" data-animate>
+      <div class="stat-num">30</div>
+      <div class="stat-lbl">Day Avg. Close</div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="section-header">
+    <div class="sh-left">
+      <div class="sh-eyebrow">How It Works</div>
+      <div class="sh-title">Simple.<br>Transparent.</div>
+    </div>
+    <div class="sh-right">
+      <p>We've refined our acquisition process so you spend less time in negotiations and more time with capital in hand. Four steps from submission to payment.</p>
+    </div>
+  </div>
+
+  <div class="process-cols">
+    <!-- Same process columns as before -->
+    <div class="process-col" data-animate>
+      <div class="pc-num">01</div>
+      <h3>Submit</h3>
+      <p>Fill out a short form with your farm's basic details — location, size, output. Takes under five minutes.</p>
+    </div>
+    <div class="process-col" data-animate>
+      <div class="pc-num">02</div>
+      <h3>Valuation</h3>
+      <p>Our team reviews your asset and delivers a no-obligation valuation within 72 hours of submission.</p>
+    </div>
+    <div class="process-col" data-animate>
+      <div class="pc-num">03</div>
+      <h3>Offer</h3>
+      <p>We make a competitive, all-cash offer. No hidden fees, no lowball tactics — a straightforward deal.</p>
+    </div>
+    <div class="process-col" data-animate>
+      <div class="pc-num">04</div>
+      <h3>Close</h3>
+      <p>We handle all due diligence and paperwork. Most transactions close in 30 days. You walk away funded.</p>
+    </div>
+  </div>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <div>
+      <div class="sh-eyebrow" style="margin-bottom:12px;">Ready to sell?</div>
+      <h2>LET'S TALK<br><span>VALUE.</span></h2>
+    </div>
+    <div class="cta-btns">
+      <button class="btn-solid" onclick="route(event, 'contact')">Get a Free Valuation &rarr;</button>
+      <button class="btn-outline" onclick="route(event, 'about')">Learn About Us</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-mid">&copy; 2026 Repowering Partners. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#home" onclick="route(event, 'home')">Home</a>
+      <a href="#about" onclick="route(event, 'about')">About</a>
+      <a href="#contact" onclick="route(event, 'contact')">Contact</a>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════
+     ABOUT PAGE
+══════════════════════════════ -->
+<div class="page" id="page-about">
+
+  <div class="about-hero">
+    <div class="about-hero-meta">
+      <span>Repowering Partners</span>
+      <div class="hero-meta-dot"></div>
+      <span>Our Story</span>
+    </div>
+    <h1>POWERING<br><span class="muted-line">PROGRESS.</span></h1>
+    <p class="about-hero-body">Repowering Partners was founded with one mission: make it effortless for solar farm owners to unlock the value they've built — and put that energy back into the world.</p>
+  </div>
+
+  <div class="about-img-row">
+    <div class="about-img-cell">
+      <img src="images/there.jpg" alt="Solar Farm Aerial">
+    </div>
+    <div class="about-img-cell">
+      <img src="images/theres.jpeg" alt="Solar Panels at Sunset">
+    </div>
+  </div>
+
+  <div class="about-split">
+    <div class="about-block" data-animate>
+      <div class="ab-eyebrow">Who We Are</div>
+      <div class="ab-title">Built From The<br>Industry Up.</div>
+      <p>Our founders spent decades developing, financing, and operating solar assets before starting Repowering Partners.</p>
+    </div>
+    <div class="about-block" data-animate>
+      <div class="ab-eyebrow">What Drives Us</div>
+      <div class="ab-title">Renewable Energy<br>At Scale.</div>
+      <p>We believe in a clean energy future, and the fastest way to get there is by maximizing the productivity of every solar asset that already exists.</p>
+    </div>
+  </div>
+
+  <div class="about-close">
+    <div class="about-close-left">
+      <h2>We've Done This<br>Before.</h2>
+      <p>With over $2 billion in solar assets acquired across 30+ states, we have the capital, the process, and the expertise to close your deal confidently.</p>
+    </div>
+    <div class="about-close-right">
+      <button class="btn-solid" onclick="route(event, 'contact')">Get Your Valuation</button>
+      <button class="btn-outline" onclick="route(event, 'home')">&larr; Back to Home</button>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-mid">&copy; 2026 Repowering Partners. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#home" onclick="route(event, 'home')">Home</a>
+      <a href="#about" onclick="route(event, 'about')">About</a>
+      <a href="#contact" onclick="route(event, 'contact')">Contact</a>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ══════════════════════════════
+     CONTACT PAGE
+══════════════════════════════ -->
+<div class="page" id="page-contact">
+
+  <div class="contact-hero">
+    <div class="about-hero-meta">
+      <span>Repowering Partners</span>
+      <div class="hero-meta-dot"></div>
+      <span>Acquisitions</span>
+    </div>
+    <h1>SELL YOUR<br><span class="muted-line">FARM.</span></h1>
+    <p>Fill out the form below and Jim will be in touch within 24 hours to discuss your solar asset and provide a no-obligation valuation.</p>
+  </div>
+
+  <div class="contact-layout">
+    <div class="contact-info">
+      <div class="ci-card" data-animate-left>
+        <div>
+          <div class="ci-label">Headquarters</div>
+          <p>Austin, TX 78701<br>United States</p>
+        </div>
+      </div>
+      <div class="ci-card" data-animate-left>
+        <div>
+          <div class="ci-label">Email Jim Directly</div>
+          <a href="mailto:Jim.bakhaus@repoweringpartners.com">Jim.bakhaus@repoweringpartners.com</a>
+        </div>
+      </div>
+      <div class="ci-card" data-animate-left>
+        <div>
+          <div class="ci-label">Response Time</div>
+          <p>Within 24 business hours.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-section" data-animate>
+      <div class="cf-title">Tell Us About Your Farm</div>
+      <p class="cf-sub">All information is kept strictly confidential. No obligation.</p>
+
+      <!-- 
+         IMPORTANT: Replace 'YOUR_FORMSPREE_ID' below with your actual Formspree ID 
+         or the URL provided by your backend service. 
+      -->
+      <form id="contactForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onsubmit="handleSubmit(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" placeholder="John" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" placeholder="Smith" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" name="email" id="email" placeholder="john@example.com" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="state">Farm State</label>
+            <select name="state" id="state">
+              <option value="">Select state...</option>
+              <option>California</option>
+              <option>Texas</option>
+              <option>Florida</option>
+              <option>New York</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="capacity">Capacity (MW)</label>
+            <select name="capacity" id="capacity">
+              <option value="">Select range...</option>
+              <option>Under 1 MW</option>
+              <option>1 – 5 MW</option>
+              <option>5 – 20 MW</option>
+              <option>20 – 100 MW</option>
+              <option>100 MW+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="details">Additional Details</label>
+          <textarea name="details" id="details" placeholder="Tell us about your farm..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Send to Jim &rarr;</button>
+      </form>
+
+      <div class="success-msg" id="successMsg">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <h4>Inquiry Received</h4>
+        <p>Your message has been sent to Jim at<br>Jim.bakhaus@repoweringpartners.com<br><br>Expect a response within 24 business hours.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-mid">&copy; 2026 Repowering Partners. All rights reserved.</div>
+    <div class="footer-links">
+      <a href="#home" onclick="route(event, 'home')">Home</a>
+      <a href="#about" onclick="route(event, 'about')">About</a>
+      <a href="#contact" onclick="route(event, 'contact')">Contact</a>
+    </div>
+  </footer>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
