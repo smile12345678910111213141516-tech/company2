@@ -329,51 +329,46 @@
          IMPORTANT: Replace 'YOUR_FORMSPREE_ID' below with your actual Formspree ID 
          or the URL provided by your backend service. 
       -->
-      <form id="contactForm" action="https://formspree.io/f/xzdjgyby" method="POST" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" name="firstName" id="firstName" placeholder="John" required>
-          </div>
-          <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" name="lastName" id="lastName" placeholder="Smith" required>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" name="email" id="email" placeholder="john@example.com" required>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="state">Farm State</label>
-            <select name="state" id="state">
-              <option value="">Select state...</option>
-              <option>California</option>
-              <option>Texas</option>
-              <option>Florida</option>
-              <option>New York</option>
-              <option>Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="capacity">Capacity (MW)</label>
-            <select name="capacity" id="capacity">
-              <option value="">Select range...</option>
-              <option>Under 1 MW</option>
-              <option>1 – 5 MW</option>
-              <option>5 – 20 MW</option>
-              <option>20 – 100 MW</option>
-              <option>100 MW+</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="details">Additional Details</label>
-          <textarea name="details" id="details" placeholder="Tell us about your farm..."></textarea>
-        </div>
-        <button type="submit" class="form-submit">Send to Jim &rarr;</button>
-      </form>
+ <form
+  id="contact-form"
+  action="https://formspree.io/f/xzdjgyby"
+  method="POST"
+>
+  <input type="hidden" name="_subject" value="New Repowering Partners Submission">
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="name">Contact Name</label>
+      <input type="text" id="name" name="name" required placeholder="John Doe">
+    </div>
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required placeholder="john@example.com">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="capacity">System Size (MW)</label>
+      <input type="number" id="capacity" name="capacity" required placeholder="e.g. 5">
+    </div>
+    <div class="form-group">
+      <label for="cod">Year Built</label>
+      <input type="number" id="cod" name="cod" required placeholder="e.g. 2018">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Message (Optional)</label>
+    <textarea id="message" name="message" rows="3" placeholder="Tell us about your farm..."></textarea>
+  </div>
+
+  <button type="submit" class="btn-solid" style="width:100%; border-radius:30px; padding: 1.2rem;">
+    Submit for Review
+  </button>
+
+  <p id="form-status" style="margin-top: 1rem; text-align:center; font-weight:600;"></p>
+</form>
 
       <div class="success-msg" id="successMsg">
         <div class="success-icon">
