@@ -964,6 +964,75 @@ footer {
 }
 .success-msg p { font-size: 0.8rem; color: var(--muted); line-height: 1.75; }
 
+/* ===== NEW SECTIONS ===== */
+.hero-subheadline {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 12px 0 40px;
+  line-height: 1.6;
+}
+
+/* Why Work With Us */
+.why-section { border-bottom: 1px solid var(--border); }
+.why-points {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 40px 32px;
+}
+.why-point { display: flex; gap: 12px; align-items: flex-start; }
+.why-icon {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #4CAF50;
+  flex-shrink: 0;
+}
+.why-text { font-size: 0.95rem; line-height: 1.5; }
+
+/* FAQ */
+.faq-section { border-bottom: 1px solid var(--border); }
+.faq-list { padding: 40px 32px; }
+.faq-item { margin-bottom: 28px; }
+.faq-question {
+  font-weight: 700;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+.faq-answer {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* Trust Strip */
+.trust-strip .trust-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted2);
+}
+.trust-strip .trust-logos span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+/* Footer Tagline */
+.footer-tagline {
+  font-weight: 500;
+  color: var(--muted);
+  margin-left: 8px;
+}
+
+/* Responsive tweaks for new sections */
+@media (max-width: 640px) {
+  .why-points { grid-template-columns: 1fr; padding: 32px 20px; }
+  .faq-list { padding: 32px 20px; }
+}
+
 
 /* ══════════════════════════════
    RESPONSIVE
