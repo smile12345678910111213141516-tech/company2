@@ -27,7 +27,9 @@ function renderPage(id) {
   // Show requested page
   var target = document.getElementById('page-' + id);
   if (target) {
-    target.classList.add('active');
+    requestAnimationFrame(() => {
+  target.classList.add('active');
+});
   } else {
     // If ID not found, default to home
     document.getElementById('page-home').classList.add('active');
