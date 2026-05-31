@@ -323,7 +323,7 @@ nav.scrolled {
 ══════════════════════════════ */
 
 .hero {
-  padding: 44px 32px 38px;
+  padding: 48px 32px 44px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -357,17 +357,7 @@ nav.scrolled {
   color: var(--text);
 }
 
-/* Home hero headline — display size, pulled back from original per meeting feedback */
-.hero-headline {
-  font-size: clamp(2.8rem, 8vw, 8rem);
-  font-weight: 900;
-  line-height: 0.88;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  margin-bottom: 36px;
-}
-
-.hero-headline .line-muted { display: block; color: var(--muted2); }
+/* All page H1 headlines use .about-hero-headline for consistent sizing */
 
 /* ── CONSISTENT SUB-PAGE HEADLINE ──────────────
    About & Contact hero headline — sits clearly
@@ -422,42 +412,6 @@ nav.scrolled {
 .tag-icon svg { width: 11px; height: 11px; }
 
 .hero-cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
-
-/* TRUST STRIP */
-.trust-strip {
-  border-bottom: 1px solid var(--border);
-  padding: 24px 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  background: var(--surface);
-}
-
-.trust-label {
-  font-size: 0.6rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--muted2);
-}
-
-.trust-logos {
-  display: flex;
-  gap: 32px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.trust-logos span {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--muted);
-  text-transform: uppercase;
-  opacity: 0.6;
-}
-
 
 /* ══════════════════════════════
    IMAGE STRIP
@@ -1044,7 +998,6 @@ footer {
   nav { padding: 0 16px; }
   .nav-btn-solid { font-size: 0.68rem; padding: 7px 13px; }
   .hero { padding: 36px 16px 30px; }
-  .hero-headline { margin-bottom: 28px; }
   .hero-image-strip { height: 220px; grid-template-columns: 1fr; }
   .hero-image-strip .strip-img:not(:first-child) { display: none; }
 
@@ -1061,7 +1014,4 @@ footer {
   .about-split { grid-template-columns: 1fr; }
   .about-block { border-right: none; border-bottom: 1px solid var(--border); }
   .about-block:nth-child(3) { grid-column: span 1; }
-
-  .trust-strip { gap: 12px; }
-  .trust-logos { gap: 20px; }
 }
