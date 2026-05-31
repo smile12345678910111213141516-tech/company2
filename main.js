@@ -4,49 +4,37 @@
 
 /* ── PAGE ROUTING ──────────────────────────── */
 
-// Handle Browser Back/Forward Buttons
 window.addEventListener('popstate', function() {
   var pageId = location.hash.replace('#', '') || 'home';
   renderPage(pageId);
 });
 
-// Handle clicks on internal links
 function route(event, id) {
   if (event) event.preventDefault();
   history.pushState(null, null, '#' + id);
   renderPage(id);
 }
 
-// Logic to switch the view
 function renderPage(id) {
-  // Hide all pages
   document.querySelectorAll('.page').forEach(function(p) {
     p.classList.remove('active');
   });
 
-  // Show requested page
   var target = document.getElementById('page-' + id);
   if (target) {
     target.classList.add('active');
   } else {
-    // If ID not found, default to home
     document.getElementById('page-home').classList.add('active');
   }
 
-  // Update pill nav active state
   document.querySelectorAll('.nav-center a').forEach(function(a) {
     a.classList.remove('active');
   });
   var activeNav = document.getElementById('nav-' + id);
   if (activeNav) activeNav.classList.add('active');
 
-  // Always close mobile menu on navigation
   closeMobileMenu();
-
-  // Scroll to top
   window.scrollTo(0, 0);
-
-  // Trigger animations for new page
   setTimeout(observeAnimations, 80);
 }
 
@@ -57,7 +45,7 @@ function openMobileMenu() {
   var nav = document.getElementById('mobileNav');
   var btn = document.getElementById('mobileMenuBtn');
   nav.style.display = 'flex';
-  nav.getBoundingClientRect(); // Force reflow
+  nav.getBoundingClientRect();
   nav.classList.add('open');
   btn.classList.add('open');
   btn.setAttribute('aria-expanded', 'true');
@@ -85,7 +73,6 @@ function toggleMobileMenu() {
   }
 }
 
-// Close on outside tap
 document.addEventListener('click', function(e) {
   var nav = document.getElementById('mobileNav');
   var btn = document.getElementById('mobileMenuBtn');
@@ -94,7 +81,6 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// Close on desktop resize
 window.addEventListener('resize', function() {
   if (window.innerWidth > 960) {
     closeMobileMenu();
@@ -140,65 +126,85 @@ function observeAnimations() {
 
 
 /* ── CONTACT FORM ──────────────────────────── */
+/*
+   BUG FIX: The previous code defined a handleSubmit() function but never
+   attached it to the form — the form used a native HTML action (Formspree),
+   which bypasses JS entirely and navigates away on submit. This prevented
+   the in-page success message from ever showing.
 
-async function handleSubmit(e) {
-  e.preventDefault();
+   Fix: intercept submit via addEventListener, POST via fetch (AJAX), and
+   show the success state in-page on a 200 response.
+*/
 
-  var form = document.getElementById('contactForm');
-  var success = document.getElementById('successMsg');
-  
-  // Simple HTML5 validation check
-  if (!form.checkValidity()) {
-    form.reportValidity();
-    return;
-  }
+function initContactForm() {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
 
-  var data = new FormData(form);
-  var action = form.action;
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
 
-  // Check if Formspree action is set (not placeholder)
-  if (action && !action.includes('YOUR_FORMSPREE_ID')) {
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    var submitBtn = form.querySelector('button[type="submit"]');
+    var statusEl  = document.getElementById('form-status');
+
+    // Disable button to prevent double-submit
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting…';
+    }
+    if (statusEl) statusEl.textContent = '';
+
     try {
-      const response = await fetch(action, {
-        method: form.method,
-        body: data,
+      var response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
         headers: { 'Accept': 'application/json' }
       });
-      
-      if (response.ok) {
-        showSuccess(form, success);
-      } else {
-        alert("There was a problem submitting your form. Please try again.");
-      }
-    } catch (error) {
-       // Fallback for demo or network error
-       console.error('Submission error:', error);
-       alert("Error connecting to form service.");
-    }
-  } else {
-    // Demo Mode: If no backend is configured, just show success
-    console.log("Demo submission success");
-    showSuccess(form, success);
-  }
-}
 
-function showSuccess(form, successEl) {
-  form.style.display = 'none';
-  successEl.classList.add('show');
+      if (response.ok) {
+        // Show success state
+        form.style.display = 'none';
+        var successMsg = document.getElementById('successMsg');
+        if (successMsg) successMsg.classList.add('show');
+      } else {
+        // Parse Formspree error if available
+        var data = await response.json().catch(function() { return {}; });
+        var errMsg = (data && data.errors)
+          ? data.errors.map(function(err) { return err.message; }).join(', ')
+          : 'Something went wrong. Please try again.';
+        if (statusEl) statusEl.textContent = errMsg;
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit for Review';
+        }
+      }
+    } catch (err) {
+      console.error('Form submission error:', err);
+      if (statusEl) statusEl.textContent = 'Network error. Please check your connection and try again.';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit for Review';
+      }
+    }
+  });
 }
 
 
 /* ── INIT ──────────────────────────────────── */
 
 window.addEventListener('load', function() {
-  // 1. Mobile nav setup
   var nav = document.getElementById('mobileNav');
   if (nav) nav.style.display = 'none';
 
-  // 2. Initial Page Load based on URL Hash
   var initialPage = location.hash.replace('#', '') || 'home';
   renderPage(initialPage);
 
-  // 3. Initial animations
   setTimeout(observeAnimations, 100);
+
+  // Wire up contact form
+  initContactForm();
 });

@@ -357,6 +357,7 @@ nav.scrolled {
   color: var(--text);
 }
 
+/* Home hero headline — keeps the large display size */
 .hero-headline {
   font-size: clamp(3.8rem, 11vw, 11.5rem);
   font-weight: 900;
@@ -367,6 +368,23 @@ nav.scrolled {
 }
 
 .hero-headline .line-muted { display: block; color: var(--muted2); }
+
+/* ── CONSISTENT SUB-PAGE HEADLINE ──────────────
+   About & Contact hero headline — reduced to ~half
+   the home page size, consistent across both pages.
+   Per James & Jim: "try like half that size", "it
+   should be consistent on every page".
+─────────────────────────────────────────────── */
+.about-hero-headline {
+  font-size: clamp(2.2rem, 6vw, 5.5rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.about-hero-headline .muted-line { display: block; color: var(--muted2); }
 
 .hero-bottom {
   display: flex;
@@ -406,7 +424,7 @@ nav.scrolled {
 
 .hero-cta-row { display: flex; gap: 10px; flex-wrap: wrap; }
 
-/* TRUST STRIP (New) */
+/* TRUST STRIP */
 .trust-strip {
   border-bottom: 1px solid var(--border);
   padding: 24px 32px;
@@ -496,36 +514,8 @@ nav.scrolled {
 
 
 /* ══════════════════════════════
-   STATS & PROCESS
+   PROCESS
 ══════════════════════════════ */
-
-.stats-row {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-bottom: 1px solid var(--border);
-}
-
-.stat-cell {
-  padding: 44px 32px;
-  border-right: 1px solid var(--border);
-}
-.stat-cell:last-child { border-right: none; }
-
-.stat-num {
-  font-size: clamp(2.2rem, 5vw, 4.2rem);
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  line-height: 1;
-  margin-bottom: 6px;
-}
-
-.stat-lbl {
-  font-size: 0.68rem;
-  color: var(--muted);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
 
 .section-header {
   display: flex;
@@ -613,6 +603,60 @@ nav.scrolled {
 
 
 /* ══════════════════════════════
+   WHAT WE BUY — NEW SECTION
+══════════════════════════════ */
+
+.what-we-buy {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: 1px solid var(--border);
+}
+
+.wwb-col {
+  padding: 40px 32px;
+  border-right: 1px solid var(--border);
+}
+
+.wwb-col:last-child { border-right: none; }
+
+.wwb-eyebrow {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+
+.wwb-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wwb-list li {
+  font-size: 0.8rem;
+  color: var(--text);
+  line-height: 1.5;
+  padding-left: 16px;
+  position: relative;
+}
+
+.wwb-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 1px;
+  background: var(--muted2);
+}
+
+
+/* ══════════════════════════════
    CTA BANNER
 ══════════════════════════════ */
 
@@ -692,16 +736,7 @@ footer {
   margin-bottom: 22px;
 }
 
-.about-hero h1 {
-  font-size: clamp(3.2rem, 10vw, 9.5rem);
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  line-height: 0.86;
-  text-transform: uppercase;
-  margin-bottom: 28px;
-}
-
-.about-hero h1 .muted-line { display: block; color: var(--muted2); }
+/* about-hero-headline defined above in shared section */
 
 .about-hero-body {
   max-width: 560px;
@@ -736,9 +771,10 @@ footer {
 
 .about-img-cell:hover img { transform: scale(1.04); }
 
+/* CHANGED: now 3 columns to accommodate new third block */
 .about-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   border-bottom: 1px solid var(--border);
 }
 
@@ -758,7 +794,7 @@ footer {
 }
 
 .ab-title {
-  font-size: clamp(1.3rem, 2.5vw, 2.1rem);
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
   font-weight: 900;
   letter-spacing: -0.03em;
   text-transform: uppercase;
@@ -806,16 +842,7 @@ footer {
   border-bottom: 1px solid var(--border);
 }
 
-.contact-hero h1 {
-  font-size: clamp(3.2rem, 10vw, 9.5rem);
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  line-height: 0.86;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.contact-hero h1 .muted-line { display: block; color: var(--muted2); }
+/* contact-hero h1 now uses .about-hero-headline class for consistency */
 
 .contact-hero p {
   font-size: 0.86rem;
@@ -907,12 +934,11 @@ footer {
   transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
-/* UI Polish: Improved Focus States */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: var(--muted);
-  background: #222; /* Slightly lighter on focus */
+  background: #222;
   box-shadow: 0 0 0 2px rgba(255,255,255,0.08);
 }
 
@@ -978,13 +1004,20 @@ footer {
   .hero-image-strip { grid-template-columns: 1fr 1fr; height: 260px; }
   .hero-image-strip .strip-img:last-child { display: none; }
 
-  .stats-row { grid-template-columns: 1fr 1fr; }
-  .stats-row .stat-cell:last-child { border-right: none; border-top: 1px solid var(--border); grid-column: span 2; }
+  /* What We Buy — 2 col on tablet */
+  .what-we-buy { grid-template-columns: 1fr 1fr; }
+  .wwb-col:nth-child(2) { border-right: none; }
+  .wwb-col:nth-child(3) { grid-column: span 2; border-right: none; border-top: 1px solid var(--border); }
+
   .process-cols { grid-template-columns: 1fr 1fr; }
   .process-col:nth-child(2) { border-right: none; }
   .process-col:nth-child(3) { border-top: 1px solid var(--border); }
-  .about-split { grid-template-columns: 1fr; }
-  .about-block { border-right: none; border-bottom: 1px solid var(--border); }
+
+  /* About split — 2 col on tablet */
+  .about-split { grid-template-columns: 1fr 1fr; }
+  .about-block:nth-child(2) { border-right: none; }
+  .about-block:nth-child(3) { grid-column: span 2; border-right: none; border-top: 1px solid var(--border); }
+
   .about-img-row { grid-template-columns: 1fr; height: 240px; }
   .contact-layout { grid-template-columns: 1fr; }
   .contact-info { border-right: none; border-bottom: 1px solid var(--border); }
@@ -997,10 +1030,21 @@ footer {
   .hero-headline { margin-bottom: 28px; }
   .hero-image-strip { height: 220px; grid-template-columns: 1fr; }
   .hero-image-strip .strip-img:not(:first-child) { display: none; }
-  .stats-row { grid-template-columns: 1fr; }
-  .stat-cell { border-right: none; border-bottom: 1px solid var(--border); padding: 32px 20px; }
+
+  /* What We Buy — 1 col on mobile */
+  .what-we-buy { grid-template-columns: 1fr; }
+  .wwb-col { border-right: none; border-bottom: 1px solid var(--border); }
+  .wwb-col:nth-child(3) { grid-column: span 1; }
+  .wwb-col:last-child { border-bottom: none; }
+
   .process-cols { grid-template-columns: 1fr; }
   .process-col { border-right: none; border-bottom: 1px solid var(--border); }
+
+  /* About split — 1 col on mobile */
+  .about-split { grid-template-columns: 1fr; }
+  .about-block { border-right: none; border-bottom: 1px solid var(--border); }
+  .about-block:nth-child(3) { grid-column: span 1; }
+
   .trust-strip { gap: 12px; }
   .trust-logos { gap: 20px; }
 }
